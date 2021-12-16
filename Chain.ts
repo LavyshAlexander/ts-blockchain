@@ -23,7 +23,27 @@ export class Chain {
 		const isValid = verifier.verify(senderPublicKey, signature)
 		if (isValid) {
 			const nextBlock = new Block(this.lastBlock.hash, transaction)
+			this.mine(nextBlock.nonce)
 			this.chain.push(nextBlock)
+		}
+	}
+
+
+	private mine(nonce: number) {
+		let solution = 1;
+		console.info('Mining...')
+
+		while (true) {
+			const hash = crypto.createHash('MD5')
+			hash.update((nonce + solution).toString()).end()
+
+			const attempt = hash.digest('hex')
+			if (attempt.endsWith('7777')) {
+				console.info(`Solved: ${solution}`)
+				return solution
+			}
+
+			solution++
 		}
 	}
 }

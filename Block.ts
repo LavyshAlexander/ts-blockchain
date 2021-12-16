@@ -2,6 +2,8 @@ import * as crypto from 'crypto'
 import { Transaction } from './Transaction'
 
 export class Block {
+	public nonce = Math.random() * 999999999999 | 0
+
 	constructor(
 		public prevHash: string,
 		public transaction: Transaction,
