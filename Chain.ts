@@ -16,7 +16,7 @@ export class Chain {
 		return this.chain[this.chain.length - 1]
 	}
 
-	addBlock(transaction: Transaction, senderPublicKey: string, signature: string) {
+	addBlock(transaction: Transaction, senderPublicKey: string, signature: Buffer) {
 		const verifier = crypto.createVerify('SHA256')
 		verifier.update(transaction.toString())
 

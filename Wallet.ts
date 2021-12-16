@@ -4,7 +4,7 @@ import { Chain } from './Chain'
 
 
 export class Wallet {
-	private publicKey: string
+	public publicKey: string
 	private privateKey: string
 
 	constructor() {
@@ -24,7 +24,7 @@ export class Wallet {
 		const signer = crypto.createSign('SHA256')
 		signer.update(transaction.toString()).end()
 
-		const signature = signer.sign(this.privateKey).toString()
+		const signature = signer.sign(this.privateKey)
 		Chain.instance.addBlock(transaction, this.publicKey, signature)
 	}
 }
