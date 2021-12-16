@@ -1,4 +1,6 @@
 import * as crypto from 'crypto'
+import { Transaction } from './Transaction'
+import { Chain } from './Chain'
 
 
 export class Wallet {
@@ -14,5 +16,15 @@ export class Wallet {
 
 		this.publicKey = keyPair.publicKey
 		this.privateKey = keyPair.privateKey
+	}
+
+	sendMoney(amount: number, payeePublicKey: string) {
+		const transaction = new Transaction(amount, this.publicKey, payeePublicKey)
+
+		const signer = crypto.createSign('SHA256')
+		signer.update(transaction.toString()).end()
+
+		const signature = signer.sign(this.privateKey).toString()
+		Chain.instance.addBlock(transaction, this.publicKey, signature)
 	}
 }
