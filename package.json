@@ -2,7 +2,7 @@
 	"name": "ts-blockchain",
 	"version": "0.0.1",
 	"description": "Learn Blockchain in TypeScript.",
-	"main": "index.js",
+	"main": "dist/index.js",
 	"author": "Lavysh Alexander <LavyshAlexander@gmail.com>",
 	"license": "MIT",
 
