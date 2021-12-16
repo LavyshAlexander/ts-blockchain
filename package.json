@@ -1,8 +1,17 @@
 {
-  "name": "ts-blockchain",
-  "version": "0.0.1",
-  "description": "Learn Blockchain in TypeScript.",
-  "main": "index.js",
-  "author": "Lavysh Alexander <LavyshAlexander@gmail.com>",
-  "license": "MIT"
+	"name": "ts-blockchain",
+	"version": "0.0.1",
+	"description": "Learn Blockchain in TypeScript.",
+	"main": "index.js",
+	"author": "Lavysh Alexander <LavyshAlexander@gmail.com>",
+	"license": "MIT",
+
+	"scripts": {
+		"dev": "tsc -w"
+	},
+
+	"devDependencies": {
+		"@types/node": "^17.0.0",
+		"typescript": "^4.5.4"
+	}
 }
